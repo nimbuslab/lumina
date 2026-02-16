@@ -9,6 +9,8 @@
     "./lib/utils": "./lib/utils.ts",
     "./tokens": "./tokens/index.ts",
     "./tokens/*": "./tokens/*.ts",
+    "./components/icons": "./components/icons/index.ts",
+    "./components/icons/*": "./components/icons/*/index.ts",
     "./components/*": "./components/*.tsx",
     "./hooks/*": "./hooks/*.ts"
   },
