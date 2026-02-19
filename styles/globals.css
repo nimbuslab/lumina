@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@source "../components";
+@source "../hooks";
 
 @theme {
   /* nimbuslab brand colors */
