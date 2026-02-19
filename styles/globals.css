@@ -69,6 +69,12 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* ─── Sidebar width tokens (fallback antes do JS hidratado) ─── */
+:root {
+  --sidebar-width: 16rem;
+  --sidebar-width-icon: 3rem;
+}
+
 /* ─── Light mode (mood: light) ─── */
 @layer base {
   :root {
