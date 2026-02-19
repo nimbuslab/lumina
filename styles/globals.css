@@ -50,6 +50,7 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
+  --color-sidebar: hsl(var(--sidebar));
   --color-sidebar-background: hsl(var(--sidebar-background));
   --color-sidebar-foreground: hsl(var(--sidebar-foreground));
   --color-sidebar-primary: hsl(var(--sidebar-primary));
@@ -93,6 +94,7 @@
     --input: 30 12% 82%;
     --ring: 20 100% 50%;
     --radius: 0.5rem;
+    --sidebar: 30 18% 97%;
     --sidebar-background: 30 18% 97%;
     --sidebar-foreground: 20 10% 15%;
     --sidebar-primary: 20 100% 50%;
@@ -126,6 +128,7 @@
     --border: 20 6% 18%;
     --input: 20 6% 18%;
     --ring: 20 100% 50%;
+    --sidebar: 20 8% 8%;
     --sidebar-background: 20 8% 8%;
     --sidebar-foreground: 30 10% 92%;
     --sidebar-primary: 20 100% 50%;
