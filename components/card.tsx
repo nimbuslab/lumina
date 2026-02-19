@@ -76,4 +76,12 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = "CardFooter"
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+const CardAction = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    data-slot="card-action"
+    className={cn("col-start-2 row-span-2 row-start-1 self-start justify-self-end", className)}
+    {...props}
+  />
+)
+
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, CardAction }
