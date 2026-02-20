@@ -12,7 +12,8 @@
     "./components/icons": "./components/icons/index.ts",
     "./components/icons/*": "./components/icons/*/index.ts",
     "./components/*": "./components/*.tsx",
-    "./hooks/*": "./hooks/*.ts"
+    "./hooks/*": "./hooks/*.ts",
+    "./templates/*": "./templates/*.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.0",
