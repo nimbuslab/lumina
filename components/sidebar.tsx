@@ -20,7 +20,7 @@ import { useIsMobile } from "../hooks/use-mobile"
 import { Button } from "./button"
 import { Input } from "./input"
 import { Separator } from "./separator"
-import { Sheet, SheetContent } from "./sheet"
+import { Sheet, SheetContent, SheetTitle } from "./sheet"
 import { Skeleton } from "./skeleton"
 import {
   Tooltip,
@@ -203,6 +203,7 @@ function Sidebar({
           }
           side={side}
         >
+          <SheetTitle className="sr-only">Menu</SheetTitle>
           <div className="flex h-full w-full flex-col">{children}</div>
         </SheetContent>
       </Sheet>
