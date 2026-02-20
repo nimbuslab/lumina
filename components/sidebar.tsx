@@ -13,7 +13,7 @@ import {
 } from "react"
 import { Slot } from "radix-ui"
 import { cva, type VariantProps } from "class-variance-authority"
-import { PanelLeft } from "lucide-react"
+import { PanelLeftClose, PanelLeftOpen } from "lucide-react"
 
 import { cn } from "../lib/utils"
 import { useIsMobile } from "../hooks/use-mobile"
@@ -261,24 +261,33 @@ function SidebarTrigger({
   ref,
   ...props
 }: ComponentProps<typeof Button> & { ref?: React.Ref<HTMLButtonElement> }) {
-  const { toggleSidebar } = useSidebar()
+  const { toggleSidebar, open } = useSidebar()
 
   return (
-    <Button
-      ref={ref}
-      data-sidebar="trigger"
-      variant="ghost"
-      size="icon"
-      className={cn("h-7 w-7", className)}
-      onClick={(event) => {
-        onClick?.(event)
-        toggleSidebar()
-      }}
-      {...props}
-    >
-      <PanelLeft />
-      <span className="sr-only">Toggle Sidebar</span>
-    </Button>
+    <TooltipProvider delayDuration={300}>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button
+            ref={ref}
+            data-sidebar="trigger"
+            variant="ghost"
+            size="icon"
+            className={cn("h-7 w-7", className)}
+            onClick={(event) => {
+              onClick?.(event)
+              toggleSidebar()
+            }}
+            {...props}
+          >
+            {open ? <PanelLeftClose /> : <PanelLeftOpen />}
+            <span className="sr-only">Toggle Sidebar</span>
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent side="right">
+          {open ? "Fechar menu lateral" : "Abrir menu lateral"}
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   )
 }
 
