@@ -149,8 +149,8 @@ export function apiLandingHtml(config: ApiLandingConfig): string {
     }
     .card:hover {
       border-color: var(--primary);
-      outline: 1px solid var(--primary);
-      outline-offset: -2px;
+      outline: 2px solid var(--primary);
+      outline-offset: -3px;
       transform: translateY(-2px);
     }
 
