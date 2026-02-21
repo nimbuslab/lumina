@@ -1,13 +1,41 @@
 "use client"
 
-import { type ComponentProps, useCallback, useRef } from "react"
+import { type ComponentProps, useCallback, useEffect, useRef } from "react"
 import { Dialog as DialogPrimitive } from "radix-ui"
 import { cva, type VariantProps } from "class-variance-authority"
 import { X } from "lucide-react"
 
 import { cn } from "../lib/utils"
 
-const Sheet = DialogPrimitive.Root
+// Wrapper que previne o gesto nativo de "voltar" no mobile quando o Sheet está aberto.
+// Empurra uma entrada fake no history; se o user apertar back/swipar, fecha o Sheet.
+function Sheet({ open, onOpenChange, ...props }: ComponentProps<typeof DialogPrimitive.Root>) {
+  const onOpenChangeRef = useRef(onOpenChange)
+  onOpenChangeRef.current = onOpenChange
+
+  useEffect(() => {
+    if (!open) return
+
+    let closedByBack = false
+    history.pushState({ sheet: true }, "")
+
+    const onPopState = () => {
+      closedByBack = true
+      onOpenChangeRef.current?.(false)
+    }
+
+    window.addEventListener("popstate", onPopState)
+
+    return () => {
+      window.removeEventListener("popstate", onPopState)
+      // Se fechou via botão/overlay/swipe (não pelo back), remove a entrada fake
+      if (!closedByBack) history.back()
+    }
+  }, [open])
+
+  return <DialogPrimitive.Root open={open} onOpenChange={onOpenChange} {...props} />
+}
+
 const SheetTrigger = DialogPrimitive.Trigger
 const SheetClose = DialogPrimitive.Close
 const SheetPortal = DialogPrimitive.Portal
@@ -120,9 +148,9 @@ function SheetContent({
       >
         <DialogPrimitive.Close
           data-sheet-close
-          className="absolute right-4 top-4 z-10 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary"
+          className="absolute right-4 top-4 z-10 flex size-8 items-center justify-center rounded-md opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary"
         >
-          <X className="h-4 w-4" />
+          <X className="size-4" />
           <span className="sr-only">Close</span>
         </DialogPrimitive.Close>
         {children}
