@@ -147,7 +147,7 @@ export function apiLandingHtml(config: ApiLandingConfig): string {
       transition: border-color 0.2s, transform 0.2s;
     }
     .card:hover {
-      border-color: var(--primary);
+      border: 1px solid var(--primary);
       transform: translateY(-2px);
     }
 
