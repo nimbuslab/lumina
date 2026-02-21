@@ -145,10 +145,11 @@ export function apiLandingHtml(config: ApiLandingConfig): string {
       padding: 1.5rem;
       text-decoration: none;
       color: var(--fg);
-      transition: border-color 0.2s, transform 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     }
     .card:hover {
-      border: 1px solid var(--primary);
+      border-color: var(--primary);
+      box-shadow: inset 0 0 0 1px var(--primary);
       transform: translateY(-2px);
     }
 
