@@ -13,7 +13,9 @@
     "./components/icons/*": "./components/icons/*/index.ts",
     "./components/*": "./components/*.tsx",
     "./hooks/*": "./hooks/*.ts",
-    "./templates/*": "./templates/*.ts"
+    "./templates/*": "./templates/*.ts",
+    "./og/*": "./og/*.ts",
+    "./og/nimbus-og": "./og/nimbus-og.tsx"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.0",
