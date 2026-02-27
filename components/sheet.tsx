@@ -28,8 +28,9 @@ function Sheet({ open, onOpenChange, ...props }: ComponentProps<typeof DialogPri
 
     return () => {
       window.removeEventListener("popstate", onPopState)
-      // Se fechou via botão/overlay/swipe (não pelo back), remove a entrada fake
-      if (!closedByBack) history.back()
+      // Se fechou via botão/overlay/swipe (não pelo back), remove a entrada fake.
+      // Só chama back() se ainda estiver na entrada fake (evita conflito com Link navigation)
+      if (!closedByBack && history.state?.sheet) history.back()
     }
   }, [open])
 
