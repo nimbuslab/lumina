@@ -20,6 +20,7 @@ import { useIsMobile } from "../hooks/use-mobile"
 import { Button } from "./button"
 import { Input } from "./input"
 import { Separator } from "./separator"
+import { ScrollArea } from "./scroll-area"
 import { Sheet, SheetContent, SheetTitle } from "./sheet"
 import { Skeleton } from "./skeleton"
 import {
@@ -405,19 +406,25 @@ function SidebarSeparator({
 
 function SidebarContent({
   className,
+  children,
   ref,
   ...props
 }: HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }) {
+  const { dir: _dir, ...scrollProps } = props
   return (
-    <div
+    <ScrollArea
       ref={ref}
       data-sidebar="content"
       className={cn(
-        "flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden",
+        "min-h-0 flex-1 group-data-[collapsible=icon]:overflow-hidden",
         className
       )}
-      {...props}
-    />
+      {...scrollProps}
+    >
+      <div className="flex flex-col gap-2">
+        {children}
+      </div>
+    </ScrollArea>
   )
 }
 
