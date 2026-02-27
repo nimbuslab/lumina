@@ -7,7 +7,7 @@
 const UA_TTF =
   "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; de-at) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1"
 
-async function fetchFont(family: string, weight: number): Promise<ArrayBuffer> {
+async function fetchFont(family: string, weight: FontWeight): Promise<ArrayBuffer> {
   const api = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(family)}:wght@${weight}`
   const css = await fetch(api, {
     headers: { "User-Agent": UA_TTF },
@@ -20,11 +20,13 @@ async function fetchFont(family: string, weight: number): Promise<ArrayBuffer> {
   return fetch(url).then((r) => r.arrayBuffer())
 }
 
+export type FontWeight = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
+
 export interface OGFont {
   name: string
   data: ArrayBuffer
   style: "normal"
-  weight: number
+  weight: FontWeight
 }
 
 /**
