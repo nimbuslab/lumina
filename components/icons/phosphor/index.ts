@@ -26,3 +26,5 @@
  *   // ... outros
  * } from "phosphor-react"
  */
+
+export {}
