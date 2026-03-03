@@ -262,33 +262,35 @@ function SidebarTrigger({
   ref,
   ...props
 }: ComponentProps<typeof Button> & { ref?: React.Ref<HTMLButtonElement> }) {
-  const { toggleSidebar, open } = useSidebar()
+  const { toggleSidebar, open, isMobile } = useSidebar()
+
+  const button = (
+    <Button
+      ref={ref}
+      data-sidebar="trigger"
+      variant="ghost"
+      size="icon"
+      className={cn("h-7 w-7", className)}
+      onClick={(event) => {
+        onClick?.(event)
+        toggleSidebar()
+      }}
+      {...props}
+    >
+      {open ? <PanelLeftClose /> : <PanelLeftOpen />}
+      <span className="sr-only">Toggle Sidebar</span>
+    </Button>
+  )
+
+  if (isMobile) return button
 
   return (
-    <TooltipProvider delayDuration={300}>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button
-            ref={ref}
-            data-sidebar="trigger"
-            variant="ghost"
-            size="icon"
-            className={cn("h-7 w-7", className)}
-            onClick={(event) => {
-              onClick?.(event)
-              toggleSidebar()
-            }}
-            {...props}
-          >
-            {open ? <PanelLeftClose /> : <PanelLeftOpen />}
-            <span className="sr-only">Toggle Sidebar</span>
-          </Button>
-        </TooltipTrigger>
-        <TooltipContent side="right">
-          {open ? "Fechar menu lateral" : "Abrir menu lateral"}
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <Tooltip>
+      <TooltipTrigger asChild>{button}</TooltipTrigger>
+      <TooltipContent side="right">
+        {open ? "Fechar menu lateral" : "Abrir menu lateral"}
+      </TooltipContent>
+    </Tooltip>
   )
 }
 
