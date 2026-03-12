@@ -15,7 +15,8 @@
     "./hooks/*": "./hooks/*.ts",
     "./templates/*": "./templates/*.ts",
     "./og/*": "./og/*.ts",
-    "./og/nimbus-og": "./og/nimbus-og.tsx"
+    "./og/nimbus-og": "./og/nimbus-og.tsx",
+    "./og/changelog-card": "./og/changelog-card.tsx"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.0",
