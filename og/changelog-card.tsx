@@ -134,7 +134,7 @@ export function ChangelogCard({ app, title, description, type, date }: Changelog
       <div style={{ flex: 1, display: "flex", alignItems: "center", padding: "0 48px", gap: "56px" }}>
         {/* Texto */}
         <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "20px" }}>
-          <div style={{ display: "flex", alignItems: "center", padding: "5px 12px", borderRadius: "6px", border: `1px solid ${badge.border}`, background: badge.bg, fontSize: "12px", fontWeight: 600, color: badge.color, letterSpacing: "0.04em", width: "fit-content" }}>
+          <div style={{ display: "flex", alignItems: "center", padding: "5px 12px", borderRadius: "6px", border: `1px solid ${badge.border}`, background: badge.bg, fontSize: "12px", fontWeight: 600, color: badge.color, letterSpacing: "0.04em", alignSelf: "flex-start" }}>
             {badge.label}
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
