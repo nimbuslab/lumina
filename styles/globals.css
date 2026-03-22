@@ -232,6 +232,11 @@
   }
 }
 
+/* ─── Smooth scroll ─── */
+html {
+  scroll-behavior: smooth;
+}
+
 /* ─── Utility animations ─── */
 @keyframes slide-up {
   from {
