@@ -96,7 +96,7 @@ function Combobox({
           </span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="z-[80] w-[--radix-popover-trigger-width] p-0" align={align}>
+      <PopoverContent className="z-50 w-[--radix-popover-trigger-width] p-0" align={align}>
         <Command>
           <CommandInput placeholder={searchPlaceholder} />
           <CommandList onWheel={(e) => e.stopPropagation()}>

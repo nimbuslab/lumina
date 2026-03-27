@@ -1,10 +1,11 @@
 "use client"
 
-import { type ComponentProps, useCallback, useEffect, useRef } from "react"
+import { type ComponentProps, useCallback, useEffect, useRef, useState } from "react"
 import { Dialog as DialogPrimitive } from "radix-ui"
 import { cva, type VariantProps } from "class-variance-authority"
 import { X } from "lucide-react"
 
+import { PortalContainerProvider } from "../lib/portal-context"
 import { cn } from "../lib/utils"
 
 // Wrapper que previne o gesto nativo de "voltar" no mobile quando o Sheet está aberto.
@@ -92,6 +93,7 @@ function SheetContent({
   ...props
 }: SheetContentProps & { ref?: React.Ref<HTMLDivElement> }) {
   const internalRef = useRef<HTMLDivElement>(null)
+  const [container, setContainer] = useState<HTMLDivElement | null>(null)
   const touchStartX = useRef(0)
   const touchStartY = useRef(0)
 
@@ -99,6 +101,7 @@ function SheetContent({
   const setRef = useCallback(
     (node: HTMLDivElement | null) => {
       (internalRef as React.MutableRefObject<HTMLDivElement | null>).current = node
+      setContainer(node)
       if (typeof externalRef === "function") externalRef(node)
       else if (externalRef) (externalRef as React.MutableRefObject<HTMLDivElement | null>).current = node
     },
@@ -154,7 +157,9 @@ function SheetContent({
           <X className="size-4" />
           <span className="sr-only">Close</span>
         </DialogPrimitive.Close>
-        {children}
+        <PortalContainerProvider value={container}>
+          {children}
+        </PortalContainerProvider>
       </DialogPrimitive.Content>
     </SheetPortal>
   )
