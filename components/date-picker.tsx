@@ -79,7 +79,7 @@ function DatePicker({
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="z-[80] w-auto p-0" align={align}>
+      <PopoverContent className="z-50 w-auto p-0" align={align}>
         <Calendar
           mode="single"
           selected={date}
