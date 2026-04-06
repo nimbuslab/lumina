@@ -4,17 +4,28 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  "inline-flex items-center justify-center border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
   {
     variants: {
       variant: {
         default:
-          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
+          "rounded-md border-transparent bg-primary text-primary-foreground px-2.5 py-0.5 text-xs hover:bg-primary/80",
         secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "rounded-md border-transparent bg-secondary text-secondary-foreground px-2.5 py-0.5 text-xs hover:bg-secondary/80",
         destructive:
-          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
-        outline: "text-foreground",
+          "rounded-md border-transparent bg-destructive text-destructive-foreground px-2.5 py-0.5 text-xs hover:bg-destructive/80",
+        outline:
+          "rounded-md text-foreground px-2.5 py-0.5 text-xs",
+        counter:
+          "size-5 rounded-full border-transparent bg-primary text-primary-foreground text-[10px] font-bold leading-none p-0",
+        "counter-sm":
+          "size-4 rounded-full border-transparent bg-primary text-primary-foreground text-[9px] font-bold leading-none p-0",
+        "counter-secondary":
+          "size-5 rounded-full border-transparent bg-secondary text-secondary-foreground text-[10px] font-bold leading-none p-0",
+        "counter-destructive":
+          "size-5 rounded-full border-transparent bg-destructive text-destructive-foreground text-[10px] font-bold leading-none p-0",
+        dot:
+          "size-2 rounded-full border-transparent bg-primary p-0",
       },
     },
     defaultVariants: {
