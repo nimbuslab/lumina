@@ -12,11 +12,14 @@ function ResizablePanelGroup({
   ...props
 }: React.ComponentProps<typeof Group> & { direction?: "horizontal" | "vertical" }) {
   const orient = orientation ?? direction ?? "horizontal"
+
+  // react-resizable-panels v4 usa "orientation", não "direction"
+  // Extraímos "direction" para não vazar pro DOM
   return (
     <Group
       orientation={orient}
       className={cn(
-        "flex h-full w-full",
+        "flex h-full w-full data-[panel-group-direction=vertical]:flex-col",
         orient === "vertical" && "flex-col",
         className
       )}
