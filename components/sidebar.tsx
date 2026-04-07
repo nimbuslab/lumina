@@ -1,5 +1,8 @@
 "use client"
 
+import { cva, type VariantProps } from "class-variance-authority"
+import { PanelLeftClose, PanelLeftOpen } from "lucide-react"
+import { Slot } from "radix-ui"
 import {
   createContext,
   useCallback,
@@ -11,16 +14,13 @@ import {
   type CSSProperties,
   type HTMLAttributes,
 } from "react"
-import { Slot } from "radix-ui"
-import { cva, type VariantProps } from "class-variance-authority"
-import { PanelLeftClose, PanelLeftOpen } from "lucide-react"
 
-import { cn } from "../lib/utils"
 import { useIsMobile } from "../hooks/use-mobile"
+import { cn } from "../lib/utils"
 import { Button } from "./button"
 import { Input } from "./input"
-import { Separator } from "./separator"
 import { ScrollArea } from "./scroll-area"
+import { Separator } from "./separator"
 import { Sheet, SheetContent, SheetTitle } from "./sheet"
 import { Skeleton } from "./skeleton"
 import {
@@ -423,7 +423,7 @@ function SidebarContent({
       )}
       {...scrollProps}
     >
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 pr-2">
         {children}
       </div>
     </ScrollArea>
@@ -791,5 +791,6 @@ export {
   SidebarRail,
   SidebarSeparator,
   SidebarTrigger,
-  useSidebar,
+  useSidebar
 }
+
