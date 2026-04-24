@@ -75,6 +75,19 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* ─── Apple-friendly semantic aliases ─── */
+  /* Aliases semânticos opcionais em cima dos tokens shadcn.
+     Uso: estilo mais Apple-like sem quebrar compatibilidade. */
+  --color-canvas: var(--color-background);
+  --color-ink: var(--color-foreground);
+  --color-surface: var(--color-card);
+  --color-surface-elevated: color-mix(in srgb, var(--color-card) 94%, white 6%);
+  --color-surface-sunken: color-mix(in srgb, var(--color-background) 96%, black 4%);
+  --color-ink-muted: var(--color-muted-foreground);
+  --color-hairline: color-mix(in srgb, var(--color-border) 60%, transparent);
+  --color-tint: var(--color-primary);
+  --color-tint-subtle: color-mix(in srgb, var(--color-primary) 10%, transparent);
 }
 
 /* ─── Sidebar width tokens (fallback antes do JS hidratado) ─── */

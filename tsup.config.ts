@@ -19,7 +19,7 @@ export default defineConfig({
     "react",
     "react-dom",
     "next",
-    "framer-motion",
+    "gsap",
     "tailwindcss",
   ],
   outDir: "dist",
