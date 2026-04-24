@@ -4,6 +4,15 @@
   "private": true,
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "build": "tsup && cp -R styles dist/styles",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo"
+  },
+  "files": [
+    "dist"
+  ],
   "exports": {
     "./styles/globals.css": "./styles/globals.css",
     "./lib/utils": "./lib/utils.ts",
@@ -68,9 +77,9 @@
     "framer-motion": "^12.0.0"
   },
   "devDependencies": {
-    "@nimbuslab/typescript-config": "workspace:*",
     "@types/react": "^19.0.0",
     "next": "^16.0.0",
+    "tsup": "^8.3.0",
     "typescript": "^5.9.3"
   }
 }
