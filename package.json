@@ -1,12 +1,40 @@
 {
   "name": "@nimbuslab/lumina",
   "version": "0.2.0",
-  "description": "Design system interno da nimbuslab",
-  "license": "UNLICENSED",
+  "description": "Design system React acessível construído sobre Radix UI e Tailwind CSS v4, otimizado para Next.js App Router e React 19. Tokens semânticos Apple-friendly, temas dark/light/mood e ícones unificados.",
+  "license": "MIT",
   "type": "module",
   "sideEffects": [
     "**/*.css"
   ],
+  "keywords": [
+    "design-system",
+    "component-library",
+    "ui-library",
+    "react",
+    "react-19",
+    "react-server-components",
+    "nextjs",
+    "tailwindcss",
+    "tailwindcss-v4",
+    "radix-ui",
+    "headless-ui",
+    "accessible",
+    "a11y",
+    "wcag",
+    "typescript",
+    "nimbuslab",
+    "lumina"
+  ],
+  "author": {
+    "name": "nimbuslab",
+    "email": "hugo@nimbuslab.com.br",
+    "url": "https://nimbuslab.com.br"
+  },
+  "engines": {
+    "node": ">=22",
+    "bun": ">=1.3.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nimbuslab/lumina.git"
@@ -16,8 +44,9 @@
   },
   "homepage": "https://github.com/nimbuslab/lumina#readme",
   "publishConfig": {
-    "access": "restricted",
-    "registry": "https://registry.npmjs.org/"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "provenance": true
   },
   "scripts": {
     "build": "tsup && cp -R styles dist/styles",

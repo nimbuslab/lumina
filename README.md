@@ -1,12 +1,33 @@
-# @nimbuslab/lumina
+<div align="center">
 
-Design system interno da nimbuslab.
+# Lumina
 
-Componentes React construídos sobre Radix UI e Tailwind CSS v4, com suporte nativo a Next.js App Router e React 19.
+**Design system React acessível, sobre Radix UI e Tailwind CSS v4.**
+Otimizado para Next.js App Router, React 19 e Server Components.
+
+[![npm version](https://img.shields.io/npm/v/@nimbuslab/lumina?color=FF5500&label=npm)](https://www.npmjs.com/package/@nimbuslab/lumina)
+[![npm downloads](https://img.shields.io/npm/dw/@nimbuslab/lumina?color=FF5500)](https://www.npmjs.com/package/@nimbuslab/lumina)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/@nimbuslab/lumina?color=FF5500&label=bundle)](https://bundlephobia.com/package/@nimbuslab/lumina)
+[![license](https://img.shields.io/npm/l/@nimbuslab/lumina?color=FF5500)](./LICENSE)
+[![CI](https://github.com/nimbuslab/lumina/actions/workflows/ci.yml/badge.svg)](https://github.com/nimbuslab/lumina/actions)
+
+[Componentes](#componentes) · [Tokens](#tokens-de-design) · [Temas](#temas) · [Roadmap](#roadmap)
+
+</div>
+
+---
+
+## Por que Lumina
+
+- **Acessível por padrão** — primitivos Radix UI cobrem ARIA, foco e teclado
+- **Tailwind CSS v4 nativo** — `@theme` block, `@source` automático, zero `tailwind.config.ts`
+- **Tokens semânticos Apple-friendly** — `canvas`, `ink`, `surface`, `surface-elevated`, `hairline`, `tint` coexistindo com tokens shadcn
+- **Tree-shakeable de verdade** — build por arquivo (ESM puro), só carrega o que você importa
+- **Animation-library-agnostic** — moods prontos para interpolação com GSAP, sem dependência obrigatória
+- **OG images nativos** — templates Open Graph para Next.js (`nimbus-og`, `changelog-card`)
+- **Icons unificados** — wrapper único para Lucide + Phosphor + custom
 
 ## Instalação
-
-Requer token com acesso ao escopo privado `@nimbuslab` no npm.
 
 ```bash
 bun add @nimbuslab/lumina
@@ -15,26 +36,32 @@ bun add @nimbuslab/lumina
 ### Peer dependencies
 
 ```bash
-bun add react react-dom next tailwindcss framer-motion
+bun add react react-dom next tailwindcss
+# opcional, se for animar com GSAP
+bun add gsap
 ```
 
-## Uso
+| Peer | Versão |
+|---|---|
+| `react` | `^19.0.0` |
+| `react-dom` | `^19.0.0` |
+| `next` | `>=15.0.0` |
+| `tailwindcss` | `^4.0.0` |
+| `gsap` *(opcional)* | `>=3.12.0` |
 
-### Estilos globais
-
-Importar o CSS base no entry do app (layout root, `globals.css`, etc):
+## Quick start
 
 ```css
+/* app/globals.css */
 @import "@nimbuslab/lumina/styles/globals.css";
 ```
 
-### Componentes
-
 ```tsx
+// app/page.tsx
 import { Button } from "@nimbuslab/lumina/components/button"
 import { Card } from "@nimbuslab/lumina/components/card"
 
-export function Example() {
+export default function Page() {
   return (
     <Card>
       <Button>Clique aqui</Button>
@@ -43,49 +70,116 @@ export function Example() {
 }
 ```
 
-### Tokens
+Pronto. Light mode por padrão, dark mode com `class="dark"` no `<html>`.
+
+## Componentes
+
+70+ componentes baseados em primitivos Radix:
+
+`Accordion` · `Alert` · `AlertDialog` · `AspectRatio` · `Avatar` · `AvatarGroup` · `Badge` · `Breadcrumb` · `Button` · `Calendar` · `Card` · `Carousel` · `Chart` · `Checkbox` · `Collapsible` · `Combobox` · `Command` · `ContextMenu` · `DatePicker` · `Dialog` · `Drawer` · `DropdownMenu` · `Form` · `HoverCard` · `Input` · `InputOTP` · `Label` · `Menubar` · `NavigationMenu` · `Pagination` · `Popover` · `Progress` · `RadioGroup` · `Resizable` · `ScrollArea` · `Select` · `Separator` · `Sheet` · `Sidebar` · `Skeleton` · `Slider` · `Sonner` · `Switch` · `Table` · `Tabs` · `Textarea` · `Toggle` · `ToggleGroup` · `Tooltip`
+
+E utilitários: `Icon` (Lucide + Phosphor + custom), `OG templates`, `Hooks`.
+
+## Tokens de design
+
+### shadcn-compatible (padrão mercado)
+
+```
+--background  --foreground
+--card        --card-foreground
+--popover     --popover-foreground
+--primary     --primary-foreground
+--secondary   --secondary-foreground
+--muted       --muted-foreground
+--accent      --accent-foreground
+--destructive --destructive-foreground
+--border  --input  --ring  --radius
+--sidebar-*   --chart-1..5
+```
+
+### Apple-friendly (aliases)
+
+```
+--color-canvas             /* → background */
+--color-ink                /* → foreground */
+--color-ink-muted          /* → muted-foreground */
+--color-surface            /* → card */
+--color-surface-elevated   /* card + 6% white */
+--color-surface-sunken     /* background + 4% black */
+--color-hairline           /* border 60% alpha */
+--color-tint               /* → primary */
+--color-tint-subtle        /* primary 10% alpha */
+```
+
+### Brand
+
+```
+--color-nimbus-50 ... --color-nimbus-950
+```
+
+## Temas
+
+- **Light** — padrão (sem classe)
+- **Dark** — `class="dark"` no `<html>`
+- **Moods** — `.mood-warm`, `.mood-light`, `.mood-intense`
+
+Aplicação programática (compatível com GSAP):
 
 ```ts
-import { colors, typography, spacing } from "@nimbuslab/lumina/tokens"
+import gsap from "gsap"
+import { buildMoodProxy, applyMoodToElement } from "@nimbuslab/lumina/tokens/moods"
+
+const proxy = buildMoodProxy("dark")
+const target = buildMoodProxy("warm")
+
+gsap.to(proxy, {
+  ...target,
+  duration: 0.6,
+  onUpdate: () => applyMoodToElement(proxy, document.documentElement),
+})
 ```
 
-### Hooks
+## Roadmap
 
-```ts
-import { useMobile } from "@nimbuslab/lumina/hooks/use-mobile"
-```
+- [x] v0.2.0 — primeira release no npm
+- [ ] v0.3.0 — release público open source (este)
+- [ ] v0.4.0 — Storybook hospedado em `lumina.nimbuslab.com.br`
+- [ ] v0.5.0 — temas adicionais e variantes de mood
+- [ ] v1.0.0 — API estável, breaking changes só em majors
 
-### Icons
+## Compatibilidade
+
+| Lumina | React | Next.js | Tailwind |
+|---|---|---|---|
+| `0.x` | `^19` | `>=15` | `^4` |
+
+## Bundle
+
+Bundle por arquivo (`bundle: false` no tsup), tree-shaking máximo. Importe só o que usa:
 
 ```tsx
-import { Icon } from "@nimbuslab/lumina/components/icons"
+// pega só o Button
+import { Button } from "@nimbuslab/lumina/components/button"
 ```
 
-### OG images (Next.js)
+Cada componente carrega só seus primitivos Radix necessários.
 
-```tsx
-import { NimbusOG } from "@nimbuslab/lumina/og/nimbus-og"
-```
+## Contribuindo
 
-## Desenvolvimento
+Lumina é mantido pela equipe da nimbuslab. PRs externos são aceitos por convite. Para reportar bugs ou sugerir features, contate `hugo@nimbuslab.com.br`.
 
-```bash
-bun install
-bun run build       # gera dist/
-bun run dev         # watch mode
-bun run typecheck
-```
+Veja [CONTRIBUTING.md](./CONTRIBUTING.md) para mais detalhes.
 
-## Publicação
+## Stack
 
-Versionamento via Changesets. Publish automatizado por workflow GitHub Actions no push para `main`.
-
-```bash
-bunx changeset       # registrar mudança
-bunx changeset version  # bumpar versão + CHANGELOG
-git push             # workflow publica no npm
-```
+[Radix UI](https://www.radix-ui.com/) · [Tailwind CSS v4](https://tailwindcss.com/) · [TypeScript](https://www.typescriptlang.org/) · [tsup](https://tsup.egoist.dev/) · [Changesets](https://github.com/changesets/changesets) · [Bun](https://bun.sh/)
 
 ## Licença
 
-UNLICENSED — uso interno da nimbuslab.
+[MIT](./LICENSE) © [nimbuslab](https://nimbuslab.com.br)
+
+<div align="center">
+
+Construído em Brasília, DF — Brasil
+
+</div>
