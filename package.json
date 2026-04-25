@@ -1,6 +1,6 @@
 {
   "name": "@nimbuslab/lumina",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Design system React acessível construído sobre Radix UI e Tailwind CSS v4, otimizado para Next.js App Router e React 19. Tokens semânticos Apple-friendly, temas dark/light/mood e ícones unificados.",
   "license": "MIT",
   "type": "module",
