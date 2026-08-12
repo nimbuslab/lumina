@@ -40,7 +40,7 @@
     "url": "git+https://github.com/nimbuslab/lumina.git"
   },
   "bugs": {
-    "url": "https://github.com/nimbuslab/lumina/issues"
+    "email": "suporte@nimbuslab.com.br"
   },
   "homepage": "https://github.com/nimbuslab/lumina#readme",
   "publishConfig": {
