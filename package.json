@@ -64,6 +64,10 @@
       "types": "./dist/lib/utils.d.ts",
       "import": "./dist/lib/utils.js"
     },
+    "./lib/portal-context": {
+      "types": "./dist/lib/portal-context.d.ts",
+      "import": "./dist/lib/portal-context.js"
+    },
     "./tokens": {
       "types": "./dist/tokens/index.d.ts",
       "import": "./dist/tokens/index.js"
