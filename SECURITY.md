@@ -7,8 +7,8 @@ no npm recebe correções de segurança.
 
 | Versão | Suporte |
 |---|---|
-| `0.4.x` | sim |
-| `0.3.x` e anteriores | não |
+| `0.3.x` | sim |
+| `0.2.x` e anteriores | não |
 
 ## Como reportar uma vulnerabilidade
 
