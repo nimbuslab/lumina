@@ -29,14 +29,17 @@ bun run typecheck
 
 ## Padrões
 
-Veja convenções de código, naming e estrutura de componentes no [CLAUDE.md do monorepo nimbuslab](https://github.com/nimbuslab/nimbuslab) (público para colaboradores). Resumo:
+Convenções de código, naming e estrutura de componentes:
 
-- TypeScript strict
+- TypeScript strict, sem `any` (prefira `unknown`)
 - Componentes em PascalCase, arquivos em kebab-case
 - Named exports (nunca default)
-- Estilização com Tailwind + `cn()` para merge
+- Estilização com Tailwind + `cn()` para merge de classes
 - Variantes com `class-variance-authority`
+- Sintaxe de variável CSS do Tailwind v4: `classe-(--var)`, nunca `classe-[--var]`
+- Tokens semânticos do design system em vez de cores cruas
 - Acessibilidade primeiro: prefira primitivos Radix
+- Overlays renderizam em portal, com `container` vindo do `PortalContainerProvider`
 - Commits em português brasileiro, conventional commits, sem emojis, sem assinaturas de IA
 
 ## Versionamento

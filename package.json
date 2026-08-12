@@ -40,7 +40,7 @@
     "url": "git+https://github.com/nimbuslab/lumina.git"
   },
   "bugs": {
-    "url": "https://github.com/nimbuslab/lumina/issues"
+    "email": "suporte@nimbuslab.com.br"
   },
   "homepage": "https://github.com/nimbuslab/lumina#readme",
   "publishConfig": {
@@ -49,7 +49,7 @@
     "provenance": true
   },
   "scripts": {
-    "build": "tsup && cp -R styles dist/styles",
+    "build": "tsup && mkdir -p dist/styles && cp -R styles/. dist/styles",
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist .turbo",
@@ -63,6 +63,10 @@
     "./lib/utils": {
       "types": "./dist/lib/utils.d.ts",
       "import": "./dist/lib/utils.js"
+    },
+    "./lib/portal-context": {
+      "types": "./dist/lib/portal-context.d.ts",
+      "import": "./dist/lib/portal-context.js"
     },
     "./tokens": {
       "types": "./dist/tokens/index.d.ts",

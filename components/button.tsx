@@ -27,11 +27,24 @@ const buttonVariants = cva(
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-4",
         icon: "h-10 w-10",
+        "icon-sm": "size-7",
+        "icon-md": "size-9",
+      },
+      // Eixo de tom, ortogonal ao variant. `default` não altera nada (preserva
+      // os variants sólidos existentes); os demais tingem icon buttons ghost de
+      // forma consistente — neutro por padrão, primary só em toggle ativo,
+      // destructive revelando o vermelho apenas no hover.
+      tone: {
+        default: "",
+        neutral: "text-muted-foreground hover:bg-muted hover:text-foreground",
+        primary: "text-primary hover:bg-primary/10 hover:text-primary",
+        destructive: "text-muted-foreground hover:bg-destructive/10 hover:text-destructive",
       },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
+      tone: "default",
     },
   }
 )
@@ -42,12 +55,12 @@ export interface ButtonProps
   asChild?: boolean
 }
 
-function Button({ className, variant, size, asChild = false, ...props }: ButtonProps) {
+function Button({ className, variant, size, tone, asChild = false, ...props }: ButtonProps) {
   const Comp = asChild ? Slot : "button"
   return (
     <Comp
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, size, tone, className }))}
       {...props}
     />
   )

@@ -2,7 +2,7 @@
 
 Sistema modular de ícones compatível com múltiplas bibliotecas.
 
-## 🎯 Filosofia
+## Filosofia
 
 1. **Modular**: Suporte a múltiplas libs (Lucide, Phosphor, Custom)
 2. **Consistente**: API unificada com props padronizadas
@@ -10,28 +10,28 @@ Sistema modular de ícones compatível com múltiplas bibliotecas.
 4. **Type-safe**: TypeScript completo
 5. **Tree-shakeable**: Importe apenas o que usar
 
-## 📦 Bibliotecas Suportadas
+## Bibliotecas suportadas
 
 ### Lucide (Padrão)
-- ✅ Instalado por padrão
+- Instalado por padrão
 - Estilo: Moderno, limpo, outline
 - 1000+ ícones
 - [Documentação](https://lucide.dev)
 
 ### Phosphor (Opcional)
-- ⚠️ Requer instalação: `bun add phosphor-react`
+- Requer instalação: `bun add phosphor-react`
 - Estilo: Versátil (thin, light, regular, bold, fill, duotone)
 - 6000+ ícones
 - [Documentação](https://phosphoricons.com)
 
 ### Custom (SVG Próprios)
-- ✅ Sempre disponível
+- Sempre disponível
 - Para logos e ícones específicos
 - Exemplos: WhatsApp, logos personalizados
 
-## 🚀 Uso
+## Uso
 
-### 1. Ícones Lucide (Recomendado)
+### 1. Ícones Lucide (recomendado)
 
 ```tsx
 import { Menu, User, MessageCircle } from "@nimbuslab/lumina/components/icons/lucide"
@@ -41,7 +41,7 @@ import { Menu, User, MessageCircle } from "@nimbuslab/lumina/components/icons/lu
 <User className="h-5 w-5 text-primary" />
 ```
 
-### 2. Ícones Customizados
+### 2. Ícones customizados
 
 ```tsx
 import { WhatsApp } from "@nimbuslab/lumina/components/icons/custom"
@@ -54,7 +54,7 @@ import { WhatsApp } from "@nimbuslab/lumina/components/icons/custom"
 <WhatsApp className="h-6 w-6" />
 ```
 
-### 3. Wrapper Universal
+### 3. Wrapper universal
 
 ```tsx
 import { Icon } from "@nimbuslab/lumina/components/icons"
@@ -68,7 +68,7 @@ import { WhatsApp } from "@nimbuslab/lumina/components/icons/custom"
 <Icon icon={WhatsApp} size="md" />
 ```
 
-### 4. Com Phosphor (Opcional)
+### 4. Com Phosphor (opcional)
 
 ```tsx
 // 1. Instalar primeiro: bun add phosphor-react
@@ -79,7 +79,7 @@ import { House } from "@nimbuslab/lumina/components/icons/phosphor"
 <House className="h-6 w-6" weight="bold" />
 ```
 
-## 📏 Tamanhos
+## Tamanhos
 
 Tamanhos padronizados disponíveis via prop `size`:
 
@@ -99,9 +99,9 @@ Tamanhos padronizados disponíveis via prop `size`:
 <WhatsApp size="xl" />
 ```
 
-## 🎨 Customização
+## Customização
 
-### Override de Classes
+### Override de classes
 
 ```tsx
 <WhatsApp size="md" className="text-green-600 hover:text-green-700" />
@@ -114,9 +114,9 @@ Tamanhos padronizados disponíveis via prop `size`:
 <WhatsApp size="md" className="hover:scale-110 transition-transform" />
 ```
 
-## ➕ Adicionar Novos Ícones
+## Adicionar novos ícones
 
-### Ícone Customizado (SVG)
+### Ícone customizado (SVG)
 
 1. Criar arquivo em `custom/`:
 
@@ -170,25 +170,25 @@ export { NovoIcone } from "lucide-react"
 export { House, MagnifyingGlass } from "phosphor-react"
 ```
 
-## 💡 Quando Usar Cada Lib
+## Quando usar cada biblioteca
 
 ### Use Lucide quando:
-- ✅ Ícones de UI comum (menu, user, settings)
-- ✅ Ícones de navegação
-- ✅ Ícones de ações (edit, delete, share)
-- ✅ Na maioria dos casos (padrão)
+- Ícones de UI comum (menu, user, settings)
+- Ícones de navegação
+- Ícones de ações (edit, delete, share)
+- Na maioria dos casos (padrão)
 
 ### Use Phosphor quando:
-- ⚠️ Precisa de variações de peso (thin, light, bold)
-- ⚠️ Precisa de estilo duotone
-- ⚠️ Lucide não tem o ícone específico
+- Precisa de variações de peso (thin, light, bold)
+- Precisa de estilo duotone
+- Lucide não tem o ícone específico
 
 ### Use Custom quando:
-- ✅ Logos de marcas (WhatsApp, Telegram)
-- ✅ Ícones proprietários da nimbuslab
-- ✅ Nenhuma lib tem o ícone
+- Logos de marcas (WhatsApp, Telegram)
+- Ícones proprietários da nimbuslab
+- Nenhuma biblioteca tem o ícone
 
-## 🏗️ Estrutura
+## Estrutura
 
 ```
 icons/
@@ -206,7 +206,7 @@ icons/
     └── ...
 ```
 
-## 📚 Exemplos Reais
+## Exemplos reais
 
 ### Header com ícones
 
@@ -257,6 +257,6 @@ const socials = [
 
 ---
 
-**Dúvidas?** Consulte a documentação das bibliotecas:
+Consulte a documentação das bibliotecas:
 - [Lucide](https://lucide.dev)
 - [Phosphor](https://phosphoricons.com)

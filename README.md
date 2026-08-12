@@ -9,11 +9,10 @@ Otimizado para Next.js App Router, React 19 e Server Components.
 
 [![npm version](https://img.shields.io/npm/v/@nimbuslab/lumina?color=FF5500&label=npm)](https://www.npmjs.com/package/@nimbuslab/lumina)
 [![npm downloads](https://img.shields.io/npm/dw/@nimbuslab/lumina?color=FF5500)](https://www.npmjs.com/package/@nimbuslab/lumina)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/@nimbuslab/lumina?color=FF5500&label=bundle)](https://bundlephobia.com/package/@nimbuslab/lumina)
 [![license](https://img.shields.io/npm/l/@nimbuslab/lumina?color=FF5500)](./LICENSE)
 [![CI](https://github.com/nimbuslab/lumina/actions/workflows/ci.yml/badge.svg)](https://github.com/nimbuslab/lumina/actions)
 
-[Componentes](#componentes) · [Tokens](#tokens-de-design) · [Temas](#temas) · [Roadmap](#roadmap)
+[Site](https://lumina.nimbuslab.com.br) · [Componentes](#componentes) · [Tokens](#tokens-de-design) · [Temas](#temas) · [Roadmap](#roadmap) · [Changelog](./CHANGELOG.md)
 
 </div>
 
@@ -27,7 +26,7 @@ Otimizado para Next.js App Router, React 19 e Server Components.
 - **Tree-shakeable de verdade**: build por arquivo (ESM puro), só carrega o que você importa
 - **Animation-library-agnostic**: moods prontos para interpolação com GSAP, sem dependência obrigatória
 - **OG images nativos**: templates Open Graph para Next.js (`nimbus-og`, `changelog-card`)
-- **Icons unificados**: wrapper único para Lucide, Phosphor e ícones custom
+- **Icons unificados**: wrapper único sobre Lucide (já incluso) e ícones custom, com ponto de extensão opt-in para Phosphor
 
 ## Instalação
 
@@ -76,11 +75,19 @@ Pronto. Light mode por padrão, dark mode com `class="dark"` no `<html>`.
 
 ## Componentes
 
-70+ componentes baseados em primitivos Radix:
+52 módulos de componentes, a maioria sobre primitivos Radix. Cada módulo exporta também as suas partes (`Card` traz `CardHeader`, `CardTitle`, `CardContent` e assim por diante):
 
-`Accordion` · `Alert` · `AlertDialog` · `AspectRatio` · `Avatar` · `AvatarGroup` · `Badge` · `Breadcrumb` · `Button` · `Calendar` · `Card` · `Carousel` · `Chart` · `Checkbox` · `Collapsible` · `Combobox` · `Command` · `ContextMenu` · `DatePicker` · `Dialog` · `Drawer` · `DropdownMenu` · `Form` · `HoverCard` · `Input` · `InputOTP` · `Label` · `Menubar` · `NavigationMenu` · `Pagination` · `Popover` · `Progress` · `RadioGroup` · `Resizable` · `ScrollArea` · `Select` · `Separator` · `Sheet` · `Sidebar` · `Skeleton` · `Slider` · `Sonner` · `Switch` · `Table` · `Tabs` · `Textarea` · `Toggle` · `ToggleGroup` · `Tooltip`
+`Accordion` · `Alert` · `AlertDialog` · `Analytics` · `AspectRatio` · `Avatar` · `AvatarGroup` · `Badge` · `Breadcrumb` · `Button` · `Calendar` · `Card` · `Carousel` · `Chart` · `Checkbox` · `Collapsible` · `Combobox` · `Command` · `ContextMenu` · `DatePicker` · `Dialog` · `Drawer` · `DropdownMenu` · `ErrorPage` · `Form` · `HoverCard` · `Input` · `InputGroup` · `InputOTP` · `Label` · `Menubar` · `NavigationMenu` · `Pagination` · `Popover` · `Progress` · `RadioGroup` · `Resizable` · `ScrollArea` · `Select` · `Separator` · `Sheet` · `Sidebar` · `Skeleton` · `Slider` · `Sonner` · `Switch` · `Table` · `Tabs` · `Textarea` · `Toggle` · `ToggleGroup` · `Tooltip`
 
-E utilitários: `Icon` (Lucide, Phosphor e custom), `OG templates`, `Hooks`.
+E utilitários: `Icon` (Lucide e ícones custom), `OG templates`, `Hooks`.
+
+### Ícones Phosphor
+
+O namespace `Phosphor` existe como ponto de extensão e vem vazio: `phosphor-react` não é dependência do pacote. Para usar, instale por conta própria e importe da biblioteca:
+
+```bash
+bun add phosphor-react
+```
 
 ## Tokens de design
 
@@ -145,7 +152,7 @@ gsap.to(proxy, {
 
 - [x] v0.2.0: primeira release no npm
 - [x] v0.3.0: release público open source com licença MIT
-- [ ] v0.4.0: site oficial em `lumina.nimbuslab.com.br` com showcase, docs e dogfooding do próprio Lumina
+- [x] v0.4.0: site oficial em [lumina.nimbuslab.com.br](https://lumina.nimbuslab.com.br) com showcase, docs e dogfooding do próprio Lumina
 - [ ] v0.5.0: temas adicionais e variantes de mood
 - [ ] v1.0.0: API estável, breaking changes só em majors
 
@@ -170,7 +177,7 @@ Cada componente carrega só seus primitivos Radix necessários.
 
 Lumina é mantido pela equipe da nimbuslab. PRs externos são aceitos por convite. Para reportar bugs ou sugerir features, contate `suporte@nimbuslab.com.br`.
 
-Veja [CONTRIBUTING.md](./CONTRIBUTING.md) para mais detalhes.
+Veja [CONTRIBUTING.md](./CONTRIBUTING.md) para mais detalhes, o [código de conduta](./CODE_OF_CONDUCT.md) e a [política de segurança](./SECURITY.md) para reportar vulnerabilidades.
 
 ## Stack
 
@@ -179,6 +186,10 @@ Veja [CONTRIBUTING.md](./CONTRIBUTING.md) para mais detalhes.
 ## Licença
 
 [MIT](./LICENSE) © [nimbuslab](https://nimbuslab.com.br)
+
+A licença MIT vale a partir da `0.3.0`. A `0.2.0`, publicada antes da abertura do código, saiu no npm como `UNLICENSED`.
+
+Histórico de versões em [CHANGELOG.md](./CHANGELOG.md).
 
 <div align="center">
 
