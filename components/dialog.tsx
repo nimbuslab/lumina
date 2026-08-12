@@ -48,7 +48,7 @@ const DialogContent = React.forwardRef<
           else if (ref) (ref as React.MutableRefObject<HTMLDivElement | null>).current = node
         }}
         className={cn(
-          "fixed inset-0 z-50 m-auto grid h-fit w-full max-w-lg gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 sm:rounded-lg",
+          "fixed inset-0 z-50 m-auto grid h-fit w-full max-w-[90vw] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 sm:max-w-lg sm:rounded-lg",
           className
         )}
         {...props}
