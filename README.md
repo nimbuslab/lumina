@@ -177,7 +177,7 @@ Cada componente carrega só seus primitivos Radix necessários.
 
 Lumina é mantido pela equipe da nimbuslab. PRs externos são aceitos por convite. Para reportar bugs ou sugerir features, contate `suporte@nimbuslab.com.br`.
 
-Veja [CONTRIBUTING.md](./CONTRIBUTING.md) para mais detalhes.
+Veja [CONTRIBUTING.md](./CONTRIBUTING.md) para mais detalhes, o [código de conduta](./CODE_OF_CONDUCT.md) e a [política de segurança](./SECURITY.md) para reportar vulnerabilidades.
 
 ## Stack
 
