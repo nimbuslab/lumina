@@ -9,11 +9,10 @@ Optimized for Next.js App Router, React 19 and Server Components.
 
 [![npm version](https://img.shields.io/npm/v/@nimbuslab/lumina?color=FF5500&label=npm)](https://www.npmjs.com/package/@nimbuslab/lumina)
 [![npm downloads](https://img.shields.io/npm/dw/@nimbuslab/lumina?color=FF5500)](https://www.npmjs.com/package/@nimbuslab/lumina)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/@nimbuslab/lumina?color=FF5500&label=bundle)](https://bundlephobia.com/package/@nimbuslab/lumina)
 [![license](https://img.shields.io/npm/l/@nimbuslab/lumina?color=FF5500)](./LICENSE)
 [![CI](https://github.com/nimbuslab/lumina/actions/workflows/ci.yml/badge.svg)](https://github.com/nimbuslab/lumina/actions)
 
-[Components](#components) · [Tokens](#design-tokens) · [Themes](#themes) · [Roadmap](#roadmap)
+[Site](https://lumina.nimbuslab.com.br) · [Components](#components) · [Tokens](#design-tokens) · [Themes](#themes) · [Roadmap](#roadmap) · [Changelog](./CHANGELOG.md)
 
 </div>
 
@@ -27,7 +26,7 @@ Optimized for Next.js App Router, React 19 and Server Components.
 - **Truly tree-shakeable**: per-file build (pure ESM), only loads what you import
 - **Animation-library-agnostic**: moods ready for GSAP interpolation, no required dependency
 - **Native OG images**: Open Graph templates for Next.js (`nimbus-og`, `changelog-card`)
-- **Unified icons**: single wrapper for Lucide, Phosphor and custom icons
+- **Unified icons**: single wrapper over Lucide (bundled) and custom icons, with an opt-in extension point for Phosphor
 
 ## Installation
 
@@ -76,11 +75,19 @@ Done. Light mode by default, dark mode by adding `class="dark"` to the `<html>` 
 
 ## Components
 
-70+ components based on Radix primitives:
+52 component modules, most of them on Radix primitives. Each module also exports its own parts (`Card` ships `CardHeader`, `CardTitle`, `CardContent` and so on):
 
-`Accordion` · `Alert` · `AlertDialog` · `AspectRatio` · `Avatar` · `AvatarGroup` · `Badge` · `Breadcrumb` · `Button` · `Calendar` · `Card` · `Carousel` · `Chart` · `Checkbox` · `Collapsible` · `Combobox` · `Command` · `ContextMenu` · `DatePicker` · `Dialog` · `Drawer` · `DropdownMenu` · `Form` · `HoverCard` · `Input` · `InputOTP` · `Label` · `Menubar` · `NavigationMenu` · `Pagination` · `Popover` · `Progress` · `RadioGroup` · `Resizable` · `ScrollArea` · `Select` · `Separator` · `Sheet` · `Sidebar` · `Skeleton` · `Slider` · `Sonner` · `Switch` · `Table` · `Tabs` · `Textarea` · `Toggle` · `ToggleGroup` · `Tooltip`
+`Accordion` · `Alert` · `AlertDialog` · `Analytics` · `AspectRatio` · `Avatar` · `AvatarGroup` · `Badge` · `Breadcrumb` · `Button` · `Calendar` · `Card` · `Carousel` · `Chart` · `Checkbox` · `Collapsible` · `Combobox` · `Command` · `ContextMenu` · `DatePicker` · `Dialog` · `Drawer` · `DropdownMenu` · `ErrorPage` · `Form` · `HoverCard` · `Input` · `InputGroup` · `InputOTP` · `Label` · `Menubar` · `NavigationMenu` · `Pagination` · `Popover` · `Progress` · `RadioGroup` · `Resizable` · `ScrollArea` · `Select` · `Separator` · `Sheet` · `Sidebar` · `Skeleton` · `Slider` · `Sonner` · `Switch` · `Table` · `Tabs` · `Textarea` · `Toggle` · `ToggleGroup` · `Tooltip`
 
-Plus utilities: `Icon` (Lucide, Phosphor and custom), `OG templates`, `Hooks`.
+Plus utilities: `Icon` (Lucide and custom icons), `OG templates`, `Hooks`.
+
+### Phosphor icons
+
+The `Phosphor` namespace exists as an extension point and ships empty: `phosphor-react` is not a dependency of this package. To use it, install it yourself and import from the library:
+
+```bash
+bun add phosphor-react
+```
 
 ## Design tokens
 
@@ -145,7 +152,7 @@ gsap.to(proxy, {
 
 - [x] v0.2.0: first release on npm
 - [x] v0.3.0: open source public release with MIT license
-- [ ] v0.4.0: official site at `lumina.nimbuslab.com.br` with showcase, docs and Lumina dogfooding
+- [x] v0.4.0: official site at [lumina.nimbuslab.com.br](https://lumina.nimbuslab.com.br) with showcase, docs and Lumina dogfooding
 - [ ] v0.5.0: additional themes and mood variants
 - [ ] v1.0.0: stable API, breaking changes only on majors
 
