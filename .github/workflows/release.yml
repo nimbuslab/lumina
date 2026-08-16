@@ -32,6 +32,13 @@ jobs:
           node-version: "22"
           registry-url: "https://registry.npmjs.org"
 
+      # O Node 22 traz o npm 10.9, que não sabe trocar o token OIDC por
+      # credencial de publicação. Sem isto, o publish por trusted publishing
+      # falha com ENEEDAUTH mesmo com o publisher configurado no npm. O
+      # suporte existe a partir do npm 11.5.1.
+      - name: Atualiza o npm para uma versão com suporte a OIDC
+        run: npm install -g npm@12.0.2
+
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
