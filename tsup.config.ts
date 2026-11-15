@@ -3,6 +3,7 @@ import { defineConfig } from "tsup"
 export default defineConfig({
   entry: [
     "components/**/*.{ts,tsx}",
+    "blocks/**/*.{ts,tsx}",
     "hooks/**/*.ts",
     "lib/**/*.{ts,tsx}",
     "tokens/**/*.ts",
