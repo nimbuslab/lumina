@@ -1,5 +1,11 @@
 # @nimbuslab/lumina
 
+## 0.5.0
+
+### Minor Changes
+
+- 4494025: bloco de login blocks/auth (entrar, código, recusa e consentimento), só com os tokens do Lumina
+
 ## 0.4.0
 
 ### Minor Changes
